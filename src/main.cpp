@@ -1,7 +1,13 @@
 #include <iostream>
+#include "../headers/Screen.hpp"
+#include "../headers/WinUtils.hpp"
 
 int main(int argc, char const *argv[])
 {
-	std::cout << "Hello, World!" << std::endl;
-	return 0;
+	WinUtils::setupConsole();
+	CLEAR;
+
+	Screen screen(100, 40);
+
+	
 }
