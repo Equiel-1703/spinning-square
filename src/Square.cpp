@@ -1,13 +1,14 @@
 #include <stdexcept>
+#include <iostream>
 
 #include "Square.hpp"
 
 Square::Square(Vertice2D from, int size)
 {
 	if (size <= 0)
-	{
 		throw std::invalid_argument("The size of the square must be greater than 0.");
-	}
+
+	size -= 1; // Size is considering the first pixel so we need to subtract it
 
 	TL = from;
 	TR = Vertice2D(from.x + size, from.y);
@@ -43,4 +44,12 @@ void Square::move(Vertice2D &new_TL)
 	BR += diff;
 
 	center += diff;
+}
+
+void Square::logVertices()
+{
+	std::wcout << L"TL: (" << TL.x << L", " << TL.y << L")" << std::endl;
+	std::wcout << L"TR: (" << TR.x << L", " << TR.y << L")" << std::endl;
+	std::wcout << L"BL: (" << BL.x << L", " << BL.y << L")" << std::endl;
+	std::wcout << L"BR: (" << BR.x << L", " << BR.y << L")" << std::endl;
 }
