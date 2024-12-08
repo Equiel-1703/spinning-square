@@ -1,6 +1,7 @@
 #include <iostream>
-#include "../headers/Screen.hpp"
-#include "../headers/WinUtils.hpp"
+#include "Screen.hpp"
+#include "Square.hpp"
+#include "WinUtils.hpp"
 
 int main(int argc, char const *argv[])
 {
@@ -8,6 +9,14 @@ int main(int argc, char const *argv[])
 	CLEAR;
 
 	Screen screen(100, 40);
+	Square s(Vertice2D(0, 0), 10);
 
-	
+	s.draw(screen);
+
+	screen.showImage();
+
+	std::wcout << std::endl << std::endl;
+	PAUSE;
+
+	return 0;
 }
