@@ -28,5 +28,6 @@ public:
 	void clearScreen(); /** Clear the screen (turn off all pixels) */
 	void turnOnPixel(int x, int y); /** Turn on a pixel in the screen */
 	void turnOffPixel(int x, int y); /** Turn off a pixel in the screen */
+	void drawLine(int x1, int y1, int x2, int y2); /** Draw a line in the screen from (x1, y1) to (x2, y2) */
 	void showImage(); /** Show the image in the screen */
 };

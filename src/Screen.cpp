@@ -1,9 +1,9 @@
-#include "../headers/WinUtils.hpp"
+#include "WinUtils.hpp"
 
 #include <algorithm>
 #include <iostream>
 
-#include "../headers/Screen.hpp"
+#include "Screen.hpp"
 
 Screen::Screen(int width, int height) : WIDTH(width), HEIGHT(height)
 {
@@ -26,6 +26,13 @@ bool Screen::isOutOfScreen(int x, int y)
 	return x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT;
 }
 
+void Screen::showImage()
+{
+	WinUtils::hideCursor();
+	WinUtils::displayImage(image, WIDTH, HEIGHT);
+	WinUtils::showCursor();
+}
+
 void Screen::turnOnPixel(int x, int y)
 {
 	if (isOutOfScreen(x, y))
@@ -42,9 +49,7 @@ void Screen::turnOffPixel(int x, int y)
 	image[y * WIDTH + x] = PIXEL_OFF;
 }
 
-void Screen::showImage()
+void Screen::drawLine(int x1, int y1, int x2, int y2)
 {
-	WinUtils::hideCursor();
-	WinUtils::displayImage(image, WIDTH, HEIGHT);
-	WinUtils::showCursor();
+	return;
 }
