@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 
 #include "Screen.hpp"
 
@@ -28,16 +29,14 @@ bool Screen::isOutOfScreen(int x, int y)
 
 void Screen::showImage()
 {
-	WinUtils::hideCursor();
 	WinUtils::displayImage(image, WIDTH, HEIGHT);
-	WinUtils::showCursor();
 }
 
 void Screen::turnOnPixel(int x, int y)
 {
 	if (isOutOfScreen(x, y))
 		return;
-	
+
 	image[y * WIDTH + x] = PIXEL_ON;
 }
 
@@ -45,11 +44,27 @@ void Screen::turnOffPixel(int x, int y)
 {
 	if (isOutOfScreen(x, y))
 		return;
-	
+
 	image[y * WIDTH + x] = PIXEL_OFF;
 }
 
 void Screen::drawLine(int x1, int y1, int x2, int y2)
 {
-	return;
+	int deltaX = x2 - x1;
+	int deltaY = y2 - y1;
+
+	int steps = max(abs(deltaX), abs(deltaY));
+
+	double incX = (double)deltaX / (double)steps;
+	double incY = (double)deltaY / (double)steps;
+
+	double xk, yk;
+
+	for (int i = 0; i < steps; i++)
+	{
+		xk = (double)x1 + (incX * i);
+		yk = (double)y1 + (incY * i);
+
+		turnOnPixel(round(xk), round(yk));
+	}
 }

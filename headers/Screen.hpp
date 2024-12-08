@@ -11,7 +11,7 @@ class Screen
 {
 private:
 	static constexpr TCHAR PIXEL_ON = L'#'; /** The  character that represents a pixel turned on in the screen */
-	static constexpr TCHAR PIXEL_OFF = L' '; /** The character that represents a pixel turned off in the screen */
+	static constexpr TCHAR PIXEL_OFF = L'.'; /** The character that represents a pixel turned off in the screen */
 	const int WIDTH, HEIGHT; /** The dimension of the screen */
 
 	TCHAR *image = nullptr; /** A matrix that represents the screen */
