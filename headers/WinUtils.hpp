@@ -3,6 +3,7 @@
 #include "WinAPIConfig.hpp"
 
 #define CLEAR system("cls")
+#define PAUSE system("pause")
 
 namespace WinUtils
 {

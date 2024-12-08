@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../headers/WinUtils.hpp"
+#include "WinUtils.hpp"
 
 namespace WinUtils
 {
